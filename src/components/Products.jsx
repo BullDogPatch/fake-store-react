@@ -12,9 +12,9 @@ const Products = () => {
   if (isLoading) return <div>loading...</div>;
 
   return (
-    <div className="grid grid-cols-2 py-10">
+    <div className="grid grid-cols-2 py-10 md:grid-cols-3 lg:grid-cols-5">
       {data?.map((product) => (
-        <Product product={product} />
+        <Product key={product.id} product={product} />
       ))}
     </div>
   );

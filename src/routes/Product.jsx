@@ -1,15 +1,21 @@
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { getProductById } from "../utils/utils";
+
 const Product = ({ product }) => {
   return (
     <div
       key={product.id}
-      className="flex flex-col justify-center w-[80%] m-auto text-center list-none "
+      className="flex flex-col justify-center w-[80%] m-auto text-center list-none p-3"
     >
-      <h2 className="text-xl py-4 text-black truncate">{product.title}</h2>
-      <div className="rounded-5 w-[100%] ">
+      <h2 className="text-xl font-bold py-4 text-black truncate">
+        {product.title}
+      </h2>
+      <div className="w-[100%] ">
         <img
           src={product.image}
           alt=""
-          className="rounded-lg w-[22rem] h-[15rem] lg:w-[500px] lg:h-[500px] lg:m-auto"
+          className="rounded-lg w-[22rem] h-[13rem] lg:w-[500px] lg:h-[300px] lg:m-auto"
         />
       </div>
 
