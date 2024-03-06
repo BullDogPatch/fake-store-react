@@ -1,7 +1,3 @@
-import { useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { getProductById } from "../utils/utils";
-
 const Product = ({ product }) => {
   return (
     <div

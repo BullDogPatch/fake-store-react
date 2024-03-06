@@ -4,12 +4,20 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import App from "./App.jsx";
 import "./index.css";
+import ProductPage from "./routes/ProductPage.jsx";
+import Products from "./components/Products.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children: [],
+    children: [
+      {
+        element: <Products />,
+        index: true,
+      },
+      { path: "/products/:id", element: <ProductPage /> },
+    ],
   },
 ]);
 

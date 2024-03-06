@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "../utils/utils";
-import Product from "../routes/Product";
+import Product from "./Product";
 
 const Products = () => {
   const { data, isLoading } = useQuery({
@@ -12,9 +13,11 @@ const Products = () => {
   if (isLoading) return <div>loading...</div>;
 
   return (
-    <div className="grid grid-cols-2 py-10 md:grid-cols-3 lg:grid-cols-5">
+    <div className="grid grid-cols-2 gap-2 pt-10 md:grid-cols-3 lg:grid-cols-5">
       {data?.map((product) => (
-        <Product key={product.id} product={product} />
+        <Link to={`products/${product.id}`} key={product.id}>
+          <Product product={product} />
+        </Link>
       ))}
     </div>
   );
