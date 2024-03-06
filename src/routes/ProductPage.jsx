@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getProductById } from "../utils/utils";
 import Loading from "../components/Loading";
 
 function ProductPage() {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["product", id],
@@ -15,6 +17,13 @@ function ProductPage() {
 
   return (
     <div className="m-4 text-black">
+      <button
+        onClick={() => navigate(-1)}
+        type="button"
+        className="px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700"
+      >
+        <span>Go back</span>
+      </button>
       <h3 className="text-center text-red-500 uppercase font-bold pb-2">
         {data.category}
       </h3>
