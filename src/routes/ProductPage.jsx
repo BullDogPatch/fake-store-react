@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getProductById } from "../utils/utils";
+import Loading from "../components/Loading";
 
 function ProductPage() {
   const { id } = useParams();
@@ -10,7 +11,7 @@ function ProductPage() {
     queryFn: () => getProductById(id),
   });
 
-  if (isLoading) return <h2 className="text-black">Loading...</h2>;
+  if (isLoading) return <Loading />;
 
   return (
     <div className="m-4 text-black">
